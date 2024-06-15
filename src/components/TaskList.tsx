@@ -8,11 +8,11 @@ interface Props {
   onEdit: (oldTaskName: string, newTaskName: string) => void;
 }
 const TaskList = ({ tasks, onDelete, onEdit }: Props) => {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState("");
   const [editValue, setEditValue] = useState("");
 
   const handleSaveClick = (task:string) => {
-    setIsEditing(false);
+    setIsEditing("");
     onEdit(task, editValue);
     setEditValue("");
   };
@@ -27,13 +27,13 @@ const TaskList = ({ tasks, onDelete, onEdit }: Props) => {
           <div className="ms-1">
             <Button
               onClick={() => {
-                setIsEditing(true);
+                setIsEditing(task);
               }}
               text="Edit"
               theme="dark"
             />
           </div>
-          {isEditing && (
+          {isEditing===task && (
             <div className="ms-2">
               <TextInput
                 pretext="edit task"
