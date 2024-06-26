@@ -11,7 +11,7 @@ const TaskList = ({ tasks, onDelete, onEdit }: Props) => {
   const [isEditing, setIsEditing] = useState("");
   const [editValue, setEditValue] = useState("");
 
-  const handleSaveClick = (task:string) => {
+  const handleSaveClick = (task: string) => {
     setIsEditing("");
     onEdit(task, editValue);
     setEditValue("");
@@ -33,7 +33,7 @@ const TaskList = ({ tasks, onDelete, onEdit }: Props) => {
               theme="dark"
             />
           </div>
-          {isEditing===task && (
+          {isEditing === task && (
             <div className="ms-2">
               <TextInput
                 pretext="edit task"
